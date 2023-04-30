@@ -2,8 +2,10 @@
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="container mx-auto">
+      home
+    </div>
+  );
+};
 
-export default Home
+export default Home;

@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.menu
+  :where(li:not(.menu-title):not(:empty))
+  > :where(:not(ul):focus),
+.menu
+  :where(li:not(.menu-title):not(:empty))
+  > :where(:not(ul):hover) {
+  background: none !important;
+  color: #c80ea0;
+}
