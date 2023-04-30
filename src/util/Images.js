@@ -1,7 +1,9 @@
-import homeImage from "@/assets/home.jpg";
+import homeImg from "@/assets/home.jpg";
+import logo from "@/assets/logo.svg";
 
 const Images = {
-  homeImg: homeImage,
+  homeImg,
+  logo,
 };
 
 export default Images;

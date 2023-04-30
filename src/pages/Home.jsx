@@ -1,10 +1,10 @@
-
+import Layout from "../components/Layout";
 
 const Home = () => {
   return (
-    <div className="container mx-auto">
-      home
-    </div>
+    <Layout>
+      Home
+    </Layout>
   );
 };
 
