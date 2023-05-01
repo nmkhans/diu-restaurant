@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         </h2>
         <p className="text-xl">{product.prize} TK</p>
         <div className="card-actions justify-end">
-          <Link to={`/items/${product?.id}`}>
+          <Link to={`/item/${product?.id}`}>
             <button className="text-lg text-primary">
               See detail <BsArrowRight className="inline-block" />
             </button>

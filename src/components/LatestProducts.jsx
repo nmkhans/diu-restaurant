@@ -7,7 +7,6 @@ const LatestProducts = () => {
   return (
     <Section>
       <Title>Latest Items</Title>
-
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {productData?.map((product) => (
           <Product key={product.id} product={product} />
