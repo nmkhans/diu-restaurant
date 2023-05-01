@@ -1,10 +1,15 @@
 import HeroSlider from "../components/HeroSlider";
+import LatestProducts from "../components/LatestProducts";
+import Layout from './../Layout/Layout';
 
 const Home = () => {
   return (
-    <section className="h-[500px]">
+    <main className="h-[500px]">
       <HeroSlider />
-    </section>
+      <Layout>
+        <LatestProducts />
+      </Layout>
+    </main>
   );
 };
 
