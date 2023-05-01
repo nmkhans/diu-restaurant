@@ -12,9 +12,9 @@ const Product = ({ product }) => {
         <h2 className="text-2xl font-semibold text-[#777777]">
           {product.name}
         </h2>
-        <p className="text-xl">{product.prize} TK</p>
+        <p className="text-xl">{product.price} TK</p>
         <div className="card-actions justify-end">
-          <Link to={`/item/${product?.id}`}>
+          <Link to={`/item/${product?._id}`}>
             <button className="text-lg text-primary">
               See detail <BsArrowRight className="inline-block" />
             </button>

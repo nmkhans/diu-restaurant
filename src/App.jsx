@@ -5,6 +5,7 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 import Images from "./util/Images";
+import { useSelector } from "react-redux";
 
 function NavigationLinks() {
   return (
@@ -35,6 +36,14 @@ function NavigationLinks() {
 }
 
 const App = () => {
+  const { cart } = useSelector((state) => state.cart);
+
+  let cartTotal = 0;
+  for (let item in cart) {
+    // eslint-disable-next-line no-unused-vars
+    cartTotal += cart[item].quantity;
+  }
+
   return (
     <>
       <header className="drawer drawer-end">
@@ -71,7 +80,7 @@ const App = () => {
                 <li>
                   <Link to="/cart" className="relative">
                     <div className="badge badge-primary absolute -top-1 right-0 text-white">
-                      0
+                      {cartTotal}
                     </div>
                     <AiOutlineShoppingCart className="text-2xl" />
                   </Link>
