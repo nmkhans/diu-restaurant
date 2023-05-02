@@ -33,7 +33,7 @@ const ProductDetail = () => {
       <div className="flex justify-between">
         <div>
           <figure>
-            <img className="w-[430px]" src={img} alt="" />
+            <img className="w-[550px]" src={img} alt="" />
           </figure>
         </div>
         <div className="w-1/2">

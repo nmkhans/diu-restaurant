@@ -11,7 +11,7 @@ function NavigationLinks() {
   return (
     <>
       <li>
-        <a>Shop</a>
+        <Link to="/menu">Menu</Link>
       </li>
       <li>
         <a className="block w-full">
@@ -22,10 +22,13 @@ function NavigationLinks() {
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[300px]"
             >
               <li>
-                <Link to="/categories/one">One</Link>
+                <Link to="/categories/breakfirst">Breakfirst</Link>
               </li>
               <li>
-                <Link to="/categories/two">Two</Link>
+                <Link to="/categories/lunch">Luch</Link>
+              </li>
+              <li>
+                <Link to="/categories/dinner">Dinner</Link>
               </li>
             </ul>
           </div>
@@ -40,7 +43,6 @@ const App = () => {
 
   let cartTotal = 0;
   for (let item in cart) {
-    // eslint-disable-next-line no-unused-vars
     cartTotal += cart[item].quantity;
   }
 
@@ -53,7 +55,7 @@ const App = () => {
           className="drawer-toggle"
         />
         <div className="drawer-content flex flex-col">
-          <div className="w-full navbar bg-base-100 shadow-lg py-3 px-7">
+          <div className="w-full navbar bg-base-100 shadow-lg py-3 px-7 min-h-[5rem]">
             {/* Navigation */}
             <div className="flex-1 hidden lg:block">
               <ul className="menu menu-horizontal">
