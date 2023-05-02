@@ -1,7 +1,35 @@
 import heroImg from "../assets/home.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useLoginMutation } from "../redux/api/authApi";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const [login, { isLoading }] = useLoginMutation();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const res = await login(data);
+    console.log(res);
+
+    if (res?.data?.success) {
+      toast.success(res?.data?.message, {
+        position: "bottom-center",
+      });
+      navigate("/");
+    } else {
+      toast.error(res?.error?.data.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
   return (
     <div
       style={{ backgroundImage: `url(${heroImg})` }}
@@ -23,7 +51,7 @@ const Login = () => {
         </div>
 
         <div className="bg-white bg-opacity-40 py-5 rounded-xl">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <h1 className="text-4xl font-semibold text-center text-primary">
               Log In
             </h1>
@@ -36,7 +64,17 @@ const Login = () => {
                   type="email"
                   placeholder="Your email"
                   className="input input-bordered"
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "Email is required!",
+                    },
+                  })}
                 />
+                <div className="mt-2 ml-2 text-red-600 font-semibold">
+                  {errors?.email?.type === "required" &&
+                    errors?.email?.message}
+                </div>
               </div>
 
               <div className="form-control">
@@ -49,7 +87,17 @@ const Login = () => {
                   type="password"
                   placeholder="Your password"
                   className="input input-bordered"
+                  {...register("password", {
+                    required: {
+                      value: true,
+                      message: "Password is required!",
+                    },
+                  })}
                 />
+                <div className="mt-2 ml-2 text-red-600 font-semibold">
+                  {errors?.password?.type === "required" &&
+                    errors?.password?.message}
+                </div>
 
                 <label className="label">
                   <Link
@@ -62,7 +110,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <button className="btn btn-primary text-white">
-                  Login
+                  {isLoading ? "Loading..." : "Login"}
                 </button>
               </div>
             </div>

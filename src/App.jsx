@@ -6,6 +6,7 @@ import {
 } from "react-icons/ai";
 import Images from "./util/Images";
 import { useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 function NavigationLinks() {
   return (
@@ -149,6 +150,7 @@ const App = () => {
           </ul>
         </div>
       </header>
+      <Toaster />
     </>
   );
 };
