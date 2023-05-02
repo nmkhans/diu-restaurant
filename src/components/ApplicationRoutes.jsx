@@ -4,6 +4,9 @@ import ProductDetail from "@/pages/ProductDetail.jsx";
 import Cart from "./../pages/Cart";
 import Menu from "../pages/Menu";
 import CategoryPage from "./CategoryPage";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import Checkout from "../pages/Checkout";
 
 const ApplicationRoutes = () => {
   return (
@@ -13,6 +16,9 @@ const ApplicationRoutes = () => {
       <Route path="/item/:id" element={<ProductDetail />} />
       <Route path="/categories/:id" element={<CategoryPage />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 };

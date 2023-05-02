@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import { clearCart } from "../redux/reducer/cartSlice";
 import Layout from "./../Layout/Layout";
@@ -7,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Layout>
@@ -36,7 +38,10 @@ const Cart = () => {
           >
             Clear cart
           </button>
-          <button className="btn btn-primary mx-3 text-white">
+          <button
+            onClick={() => navigate("/checkout")}
+            className="btn btn-primary mx-3 text-white"
+          >
             Checkout
           </button>
         </div>
