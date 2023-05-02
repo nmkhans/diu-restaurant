@@ -28,7 +28,6 @@ const Cart = () => {
             </p>
           </div>
         )}
-        {}
       </div>
       {Object.keys(cart).length > 0 && (
         <div className="text-center mt-10">

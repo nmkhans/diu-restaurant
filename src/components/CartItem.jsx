@@ -45,16 +45,16 @@ const CartItem = ({ item }) => {
         </div>
         <div className="mr-10">
           <button
-            onClick={handleAdd}
-            className="btn btn-primary mx-2 text-base-100"
-          >
-            +
-          </button>
-          <button
             onClick={handleRemove}
             className="btn btn-primary mx-2 text-base-100"
           >
             -
+          </button>
+          <button
+            onClick={handleAdd}
+            className="btn btn-primary mx-2 text-base-100"
+          >
+            +
           </button>
         </div>
       </div>
