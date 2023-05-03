@@ -8,7 +8,7 @@ const LatestProducts = () => {
   const { data, isLoading, isError, error } =
     useGetAllProductsQuery();
 
-  //? render decition
+  //? render decision
   let content = null;
 
   if (isLoading) content = <Loader />;

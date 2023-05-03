@@ -1,18 +1,22 @@
 import Layout from "../Layout/Layout";
-import productData from "./../productData";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartSlice";
+import { useGetSingleProductQuery } from "../redux/api/productApi";
+import Loader from "./../components/Loader";
+import Section from "../Layout/Section";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const { _id, name, img, description, price } = productData.find(
-    (product) => product._id === +id
-  );
+  const { data, isLoading, isError, error } =
+    useGetSingleProductQuery(id);
 
   const handleAddToCart = () => {
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    const { _id, name, img, price } = data?.data;
+
     dispatch(
       addToCart({
         _id,
@@ -23,13 +27,21 @@ const ProductDetail = () => {
     );
   };
 
-  return (
-    <Layout>
-      <div className="pb-10">
-        <h3>
-          Menu / item / <span className="text-primary">{name}</span>{" "}
-        </h3>
-      </div>
+  //? render decision
+  let content = null;
+
+  if (isLoading) content = <Loader />;
+
+  if (!isLoading && isError) content = <div>{error?.message}</div>;
+
+  if (!isLoading && !isError && !data?.data._id)
+    content = <div>Item not available!</div>;
+
+  if (!isLoading && !isError && data?.data._id) {
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    const { name, img, description, price } = data?.data;
+
+    content = (
       <div className="flex justify-between">
         <div>
           <figure>
@@ -51,6 +63,17 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <Layout>
+      <div className="pb-10">
+        <h3>
+          Menu / item / <span className="text-primary">{data?.data?.name}</span>{" "}
+        </h3>
+      </div>
+      <Section>{content}</Section>
     </Layout>
   );
 };
