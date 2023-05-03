@@ -8,8 +8,14 @@ export const productApi = api.injectEndpoints({
     getSingleProduct: builder.query({
       query: (id) => `/products/${id}`,
     }),
+    getProductByCategory: builder.query({
+      query: (category) => `/products/category/${category}`,
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useGetSingleProductQuery } =
-  productApi;
+export const {
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+  useGetProductByCategoryQuery,
+} = productApi;
