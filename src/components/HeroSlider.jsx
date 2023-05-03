@@ -36,9 +36,9 @@ const HeroSlider = () => {
               If you want the best, we are here{" "}
               <span className="text-primary">...</span>
             </p>
-            <Link to="/shop">
+            <Link to="/menu">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
-                Shop
+                Menu
               </button>
             </Link>
           </SliderContent>
@@ -63,9 +63,9 @@ const HeroSlider = () => {
               place for you
               <span className="text-primary">...</span>
             </p>
-            <Link to="/shop">
+            <Link to="/menu">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
-                Shop
+                Menu
               </button>
             </Link>
           </SliderContent>
@@ -85,12 +85,13 @@ const HeroSlider = () => {
               <span className="text-primary">.</span>
             </h2>
             <p className="text-lg text-base-200">
-              Our priority is to serve you what you desire. We have all kind and all varaities of food
+              Our priority is to serve you what you desire. We have
+              all kind and all varaities of food
               <span className="text-primary">...</span>
             </p>
-            <Link to="/shop">
+            <Link to="/menu">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
-                Shop
+                Menu
               </button>
             </Link>
           </SliderContent>
