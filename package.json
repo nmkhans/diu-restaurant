@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "daisyui": "^2.51.6",
     "react": "^18.2.0",
+    "react-auth-kit": "^2.12.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-hot-toast": "^2.4.1",

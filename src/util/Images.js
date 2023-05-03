@@ -5,6 +5,7 @@ import slideTwo from "@/assets/slide_2.jpg";
 import slideThree from "@/assets/slide_3.jpg";
 import slideFour from "@/assets/slide_4.jpg";
 import slideFive from "@/assets/slide_5.jpg";
+import avater from "@/assets/avater.png";
 
 const Images = {
   homeImg,
@@ -14,6 +15,7 @@ const Images = {
   slideThree,
   slideFour,
   slideFive,
+  avater,
 };
 
 export default Images;

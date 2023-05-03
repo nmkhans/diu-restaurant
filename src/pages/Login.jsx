@@ -1,5 +1,6 @@
 import heroImg from "../assets/home.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignIn } from "react-auth-kit";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../redux/api/authApi";
 import { toast } from "react-hot-toast";
@@ -13,12 +14,19 @@ const Login = () => {
 
   const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
+  const signIn = useSignIn();
 
   const onSubmit = async (data) => {
     const res = await login(data);
-    console.log(res);
 
     if (res?.data?.success) {
+      signIn({
+        token: res.data.data.token,
+        expiresIn: 3600,
+        tokenType: "Bearer",
+        authState: res.data.data.user,
+      });
+
       toast.success(res?.data?.message, {
         position: "bottom-center",
       });
