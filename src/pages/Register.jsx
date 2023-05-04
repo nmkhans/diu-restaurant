@@ -97,6 +97,27 @@ const Register = () => {
 
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text font-bold">Phone</span>
+                </label>
+                <input
+                  type="phone"
+                  placeholder="Your number"
+                  className="input input-bordered"
+                  {...registration("phone", {
+                    required: {
+                      value: true,
+                      message: "Phone is required!",
+                    },
+                  })}
+                />
+                <div className="mt-2 ml-2 text-red-600 font-semibold">
+                  {errors?.phone?.type === "required" &&
+                    errors?.phone?.message}
+                </div>
+              </div>
+
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text font-bold">
                     Password
                   </span>

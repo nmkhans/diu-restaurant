@@ -28,7 +28,7 @@ const CartItem = ({ item }) => {
   return (
     <div
       key={cart[item]._id}
-      className="card card-side bg-base-100 shadow-xl w-2/3 mx-auto"
+      className="card card-side bg-base-100 shadow-xl w-4/5 mx-auto"
     >
       <div className="w-full flex flex-row items-center justify-evenly">
         <figure>
