@@ -17,6 +17,8 @@ import AdminDashboard from "../pages/AdminDashboard/AdminDashboard";
 import AdminDashboardPage from "../pages/AdminDashboard/AdminDashboardPage";
 import AdminAllProducts from "../pages/AdminDashboard/AdminAllProducts";
 import AdminAllOrders from "../pages/AdminDashboard/AdminAllOrders";
+import AdminProductCreate from "../pages/AdminDashboard/AdminProductCreate";
+import AdminProductUpdate from "../pages/AdminDashboard/AdminProductUpdate";
 
 const ApplicationRoutes = () => {
   return (
@@ -68,12 +70,20 @@ const ApplicationRoutes = () => {
       >
         <Route index element={<AdminDashboard />} />
         <Route
-          path="/admin/dashboard/all-products"
+          path="all-products"
           element={<AdminAllProducts />}
         />
         <Route
-          path="/admin/dashboard/all-orders"
+          path="all-orders"
           element={<AdminAllOrders />}
+        />
+        <Route
+          path="create-product"
+          element={<AdminProductCreate />}
+        />
+        <Route
+          path="update-product/:id"
+          element={<AdminProductUpdate />}
         />
       </Route>
     </Routes>

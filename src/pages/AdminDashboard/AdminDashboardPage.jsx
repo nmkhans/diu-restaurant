@@ -32,6 +32,11 @@ const AdminDashboardPage = () => {
             <li>
               <Link to="/admin/dashboard/all-orders">All Orders</Link>
             </li>
+            <li>
+              <Link to="/admin/dashboard/create-product">
+                Create Product
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

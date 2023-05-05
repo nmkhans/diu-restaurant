@@ -1,11 +1,35 @@
 /* eslint-disable react/prop-types */
 import Title from "./../../Layout/Title";
 import Section from "./../../Layout/Section";
-import { useGetAllProductsQuery } from "../../redux/api/productApi";
+import {
+  useGetAllProductsQuery,
+  useDeleteProductMutation,
+} from "../../redux/api/productApi";
 import Loader from "../../components/Loader";
 import { FiTrash, FiEdit } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const ProductTableRow = ({ data, index }) => {
+  const navigate = useNavigate();
+
+  const [deleteProduct] = useDeleteProductMutation();
+
+  const handleDelete = async () => {
+    const res = await deleteProduct(data._id);
+    console.log(res)
+
+    if (res?.data?.success) {
+      toast.success(res?.data?.message, {
+        position: "bottom-center",
+      });
+    } else {
+      toast.error(res?.error?.data?.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
   return (
     <>
       <tr>
@@ -28,10 +52,14 @@ const ProductTableRow = ({ data, index }) => {
         <td>{data.price} TK</td>
         <td>{data.category}</td>
         <td className="flex justify-start">
-          <span>
+          <span
+            onClick={() =>
+              navigate(`/admin/dashboard/update-product/${data._id}`)
+            }
+          >
             <FiEdit className="mx-3 text-[20px] text-warning cursor-pointer" />
           </span>
-          <span>
+          <span onClick={handleDelete}>
             <FiTrash className="mx-3 text-[20px] text-error cursor-pointer" />
           </span>
         </td>
