@@ -9,6 +9,7 @@ import { usePlaceOrderMutation } from "../redux/api/orderApi";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../redux/reducer/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const { cart } = useSelector((state) => state.cart);
@@ -21,6 +22,7 @@ const Checkout = () => {
 
   const [placeOrder] = usePlaceOrderMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const auth = useAuthUser()();
 
@@ -49,6 +51,8 @@ const Checkout = () => {
 
     if (res?.data?.success) {
       dispatch(clearCart());
+      navigate("/user/dashboard/orders");
+
       toast.success(
         "Order has been placed. To confirm your order please make payment from your dashboard",
         {
@@ -230,6 +234,7 @@ const Checkout = () => {
             </div>
             <div className="mt-10 text-center">
               <button
+                disabled={total === 0}
                 type="submit"
                 className="btn btn-primary text-white w-full "
               >

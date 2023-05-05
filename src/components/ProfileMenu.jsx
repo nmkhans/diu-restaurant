@@ -4,9 +4,9 @@ import Images from "../util/Images";
 import { useNavigate } from "react-router-dom";
 
 const ProfileMenu = () => {
-  const auth = useAuthUser()();
+  const user = useAuthUser()();
   const signOut = useSignOut();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="absolute top-16 right-0 bg-white shadow-2xl rounded z-50 w-[300px] p-8 border-[#ddd] border-1">
@@ -17,18 +17,28 @@ const ProfileMenu = () => {
           alt="avater"
         />
         <div className="mt-3">
-          <h3 className="text-lg">{auth.name}</h3>
+          <h3 className="text-lg">{user.name}</h3>
         </div>
       </div>
       <div className="divider"></div>
       <div>
         <ul>
-          <li
-            onClick={() => navigate("/user/dashboard")}
-            className="mx-auto my-2"
-          >
-            Dashboard
-          </li>
+          {user?.role === "user" && (
+            <li
+              onClick={() => navigate("/user/dashboard")}
+              className="mx-auto my-2"
+            >
+              Dashboard
+            </li>
+          )}
+          {user?.role === "admin" && (
+            <li
+              onClick={() => navigate("/admin/dashboard")}
+              className="mx-auto my-2"
+            >
+              Admin
+            </li>
+          )}
           <li onClick={() => signOut()} className="mx-auto my-2">
             Logout
           </li>

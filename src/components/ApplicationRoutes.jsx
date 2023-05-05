@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { RequireAuth } from "react-auth-kit";
+import RequireAdmin from "./../util/RequireAdmin";
 import Home from "@/pages/Home.jsx";
 import ProductDetail from "@/pages/ProductDetail.jsx";
 import Cart from "./../pages/Cart";
@@ -12,6 +13,10 @@ import UserDashboardPage from "../pages/UserDashboard/UserDashboardPage";
 import UserDashboard from "../pages/UserDashboard/UserDashboard";
 import UserOrders from "../pages/UserDashboard/UserOrders";
 import PaymentSuccess from "../pages/PaymentSuccess";
+import AdminDashboard from "../pages/AdminDashboard/AdminDashboard";
+import AdminDashboardPage from "../pages/AdminDashboard/AdminDashboardPage";
+import AdminAllProducts from "../pages/AdminDashboard/AdminAllProducts";
+import AdminAllOrders from "../pages/AdminDashboard/AdminAllOrders";
 
 const ApplicationRoutes = () => {
   return (
@@ -31,6 +36,7 @@ const ApplicationRoutes = () => {
           </RequireAuth>
         }
       />
+
       <Route
         path="/payment-success/:transactionId"
         element={
@@ -39,6 +45,7 @@ const ApplicationRoutes = () => {
           </RequireAuth>
         }
       />
+
       <Route
         path="/user/dashboard"
         element={
@@ -49,6 +56,25 @@ const ApplicationRoutes = () => {
       >
         <Route index element={<UserDashboard />} />
         <Route path="orders" element={<UserOrders />} />
+      </Route>
+
+      <Route
+        path="/admin/dashboard"
+        element={
+          <RequireAdmin>
+            <AdminDashboardPage />
+          </RequireAdmin>
+        }
+      >
+        <Route index element={<AdminDashboard />} />
+        <Route
+          path="/admin/dashboard/all-products"
+          element={<AdminAllProducts />}
+        />
+        <Route
+          path="/admin/dashboard/all-orders"
+          element={<AdminAllOrders />}
+        />
       </Route>
     </Routes>
   );

@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import Images from "../util/Images";
 import { useSelector } from "react-redux";
-import { useIsAuthenticated } from "react-auth-kit";
+import { useAuthUser, useIsAuthenticated } from "react-auth-kit";
 import ProfileMenu from "./ProfileMenu";
 
 function NavigationLinks() {
@@ -53,6 +53,7 @@ const Header = ({ children }) => {
   }
 
   const isAuthenticated = useIsAuthenticated()();
+  const user = useAuthUser()();
 
   return (
     <header className="drawer drawer-end">
@@ -180,12 +181,22 @@ const Header = ({ children }) => {
               </li>
               <li>
                 <div>
-                  <label
-                    htmlFor="user-dashboard"
-                    className="btn btn-sm btn-primary drawer-button text-white lg:hidden"
-                  >
-                    Open menu
-                  </label>
+                  {user?.role === "user" && (
+                    <label
+                      htmlFor="user-dashboard"
+                      className="btn btn-sm btn-primary drawer-button text-white lg:hidden"
+                    >
+                      Open menu
+                    </label>
+                  )}
+                  {user?.role === "admin" && (
+                    <label
+                      htmlFor="admin-dashboard"
+                      className="btn btn-sm btn-primary drawer-button text-white lg:hidden"
+                    >
+                      Open menu
+                    </label>
+                  )}
                 </div>
               </li>
             </ul>
