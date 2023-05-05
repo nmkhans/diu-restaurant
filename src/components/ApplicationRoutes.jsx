@@ -8,6 +8,10 @@ import CategoryPage from "../pages/CategoryPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Checkout from "../pages/Checkout";
+import UserDashboardPage from "../pages/UserDashboard/UserDashboardPage";
+import UserDashboard from "../pages/UserDashboard/UserDashboard";
+import UserOrders from "../pages/UserDashboard/UserOrders";
+import PaymentSuccess from "../pages/PaymentSuccess";
 
 const ApplicationRoutes = () => {
   return (
@@ -27,6 +31,25 @@ const ApplicationRoutes = () => {
           </RequireAuth>
         }
       />
+      <Route
+        path="/payment-success/:transactionId"
+        element={
+          <RequireAuth loginPath="/login">
+            <PaymentSuccess />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/user/dashboard"
+        element={
+          <RequireAuth loginPath="/login">
+            <UserDashboardPage />
+          </RequireAuth>
+        }
+      >
+        <Route index element={<UserDashboard />} />
+        <Route path="orders" element={<UserOrders />} />
+      </Route>
     </Routes>
   );
 };

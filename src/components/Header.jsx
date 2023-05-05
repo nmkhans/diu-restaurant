@@ -42,7 +42,8 @@ function NavigationLinks() {
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ children }) => {
-  const [active, setActive] = useState(false);
+  const [desktopMenu, setDekstopMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const { cart } = useSelector((state) => state.cart);
 
@@ -96,8 +97,8 @@ const Header = ({ children }) => {
               <li>
                 {isAuthenticated ? (
                   <div
-                    onMouseEnter={() => setActive(true)}
-                    onMouseLeave={() => setActive(false)}
+                    onMouseEnter={() => setDekstopMenu(true)}
+                    onMouseLeave={() => setDekstopMenu(false)}
                     className="relative"
                   >
                     <div>
@@ -107,7 +108,7 @@ const Header = ({ children }) => {
                         alt="avater"
                       />
                     </div>
-                    {active && <ProfileMenu />}
+                    {desktopMenu && <ProfileMenu />}
                   </div>
                 ) : (
                   <Link to="/login">Log in</Link>
@@ -167,15 +168,25 @@ const Header = ({ children }) => {
               <li>
                 {isAuthenticated ? (
                   <div
-                    onClick={() => setActive(!active)}
+                    onClick={() => setMobileMenu(!mobileMenu)}
                     className="relative"
                   >
                     <div>Account</div>
-                    {active && <ProfileMenu />}
+                    {mobileMenu && <ProfileMenu />}
                   </div>
                 ) : (
                   <Link to="/login">Log in</Link>
                 )}
+              </li>
+              <li>
+                <div>
+                  <label
+                    htmlFor="user-dashboard"
+                    className="btn btn-sm btn-primary drawer-button text-white lg:hidden"
+                  >
+                    Open menu
+                  </label>
+                </div>
               </li>
             </ul>
           </div>

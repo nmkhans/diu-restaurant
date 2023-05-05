@@ -9,7 +9,11 @@ export const orderApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    getUsersAllOrder: builder.query({
+      query: (email) => `/orders/${email}`,
+    }),
   }),
 });
 
-export const { usePlaceOrderMutation } = orderApi;
+export const { usePlaceOrderMutation, useGetUsersAllOrderQuery } =
+  orderApi;
