@@ -12,8 +12,27 @@ export const orderApi = api.injectEndpoints({
     getUsersAllOrder: builder.query({
       query: (email) => `/orders/${email}`,
     }),
+    getAllOrders: builder.query({
+      query: () => "/orders",
+      providesTags: ["orders"],
+    }),
+    getSingleOrder: builder.query({
+      query: (id) => `/orders/order-detail/${id}`,
+    }),
+    updateStatus: builder.mutation({
+      query: ({ id, status }) => ({
+        url: `/orders/update-status?id=${id}&status=${status}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["orders"],
+    }),
   }),
 });
 
-export const { usePlaceOrderMutation, useGetUsersAllOrderQuery } =
-  orderApi;
+export const {
+  usePlaceOrderMutation,
+  useGetUsersAllOrderQuery,
+  useGetAllOrdersQuery,
+  useGetSingleOrderQuery,
+  useUpdateStatusMutation,
+} = orderApi;

@@ -153,50 +153,6 @@ const Checkout = () => {
                         errors?.phone?.message}
                     </div>
                   </div>
-
-                  <div className="form-control w-full my-3">
-                    <label htmlFor="city" className="label">
-                      <span className="label-text">City</span>
-                    </label>
-                    <input
-                      id="city"
-                      type="text"
-                      placeholder="Enter your city"
-                      className="input input-bordered w-full"
-                      {...register("city", {
-                        required: {
-                          value: true,
-                          message: "City is required!",
-                        },
-                      })}
-                    />
-                    <div className="mt-2 ml-2 text-red-600 font-semibold">
-                      {errors?.city?.type === "required" &&
-                        errors?.city?.message}
-                    </div>
-                  </div>
-
-                  <div className="form-control w-full my-3">
-                    <label htmlFor="address" className="label">
-                      <span className="label-text">Address</span>
-                    </label>
-                    <textarea
-                      id="address"
-                      type="text"
-                      placeholder="Enter your address"
-                      className="input input-bordered w-full h-[100px] p-5"
-                      {...register("address", {
-                        required: {
-                          value: true,
-                          message: "Address is required!",
-                        },
-                      })}
-                    ></textarea>
-                    <div className="mt-2 ml-2 text-red-600 font-semibold">
-                      {errors?.address?.type === "required" &&
-                        errors?.address?.message}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

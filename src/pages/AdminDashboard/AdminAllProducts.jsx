@@ -17,7 +17,6 @@ const ProductTableRow = ({ data, index }) => {
 
   const handleDelete = async () => {
     const res = await deleteProduct(data._id);
-    console.log(res)
 
     if (res?.data?.success) {
       toast.success(res?.data?.message, {
