@@ -25,6 +25,11 @@ const AdminDashboardPage = () => {
               <Link to="/admin/dashboard">Dashboard</Link>
             </li>
             <li>
+              <Link to="/admin/dashboard/user-manage">
+                Manage users
+              </Link>
+            </li>
+            <li>
               <Link to="/admin/dashboard/all-products">
                 All Products
               </Link>

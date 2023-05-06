@@ -11,7 +11,6 @@ const UserDashboard = () => {
           <DashboardCard status="pending" />
           <DashboardCard status="confirmed" />
           <DashboardCard status="shipped" />
-          <DashboardCard status="delivered" />
         </div>
       </Section>
     </div>

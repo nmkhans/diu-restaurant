@@ -4,7 +4,7 @@ import Layout from './../Layout/Layout';
 
 const Home = () => {
   return (
-    <main className="h-[500px]">
+    <main>
       <HeroSlider />
       <Layout>
         <LatestProducts />

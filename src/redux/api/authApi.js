@@ -16,7 +16,23 @@ export const authApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    getAllUsers: builder.query({
+      query: () => "/auth/users/all",
+      providesTags: ["users"],
+    }),
+    promoteUser: builder.mutation({
+      query: (id) => ({
+        url: `/auth/user/promote/${id}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useGetAllUsersQuery,
+  usePromoteUserMutation,
+} = authApi;

@@ -13,7 +13,7 @@
   :where(li:not(.menu-title):not(:empty))
   > :where(:not(ul):hover) {
   background: none !important;
-  color: #c80ea0;
+  color: #3E54AC;
 }
 
 .dBqRfL {

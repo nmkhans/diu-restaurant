@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 function loadCart() {
   let cart = {};
@@ -33,7 +34,13 @@ const cartSlice = createSlice({
       const cartState = { ...state.cart };
 
       if (_id in cartState) {
-        cartState[_id].quantity += 1;
+        if (cartState[_id].quantity < 5) {
+          cartState[_id].quantity += 1;
+        } else {
+          toast.error("Max order quantity is 5 at a time.", {
+            position: "bottom-center",
+          });
+        }
       } else {
         cartState[_id] = { quantity: 1, _id, name, img, price };
       }
