@@ -6,7 +6,7 @@ import {
 const api = createApi({
   name: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:9000/api/v1",
+    baseUrl: "https://nmk-diu-restaurant.onrender.com/api/v1",
   }),
   tagTypes: ["products", "orders", "users"],
   endpoints: () => ({}),

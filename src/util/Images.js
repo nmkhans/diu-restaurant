@@ -7,6 +7,7 @@ import slideFour from "@/assets/slide_4.jpg";
 import slideFive from "@/assets/slide_5.jpg";
 import avater from "@/assets/avater.png";
 import checked from "@/assets/checked.png";
+import foodImg from "@/assets/food_image.png";
 
 const Images = {
   homeImg,
@@ -17,7 +18,8 @@ const Images = {
   slideFour,
   slideFive,
   avater,
-  checked
+  checked,
+  foodImg,
 };
 
 export default Images;
