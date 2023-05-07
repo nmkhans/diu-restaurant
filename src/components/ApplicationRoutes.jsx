@@ -69,9 +69,9 @@ const ApplicationRoutes = () => {
           </RequireAdmin>
         }
       >
-        <Route index element={<AdminDashboard />} />
+        <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="all-products" element={<AdminAllProducts />} />
-        <Route path="all-orders" element={<AdminAllOrders />} />
+        <Route index element={<AdminAllOrders />} />
         <Route
           path="create-product"
           element={<AdminProductCreate />}
