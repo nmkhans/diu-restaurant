@@ -39,7 +39,9 @@ const ProductDetail = () => {
 
   if (!isLoading && !isError && data?.data._id) {
     // eslint-disable-next-line no-unsafe-optional-chaining
-    const { name, img, description, price } = data?.data;
+    const { name, img, description, price, stock, cafeteria } =
+      // eslint-disable-next-line no-unsafe-optional-chaining
+      data?.data;
 
     content = (
       <div className="flex justify-between">
@@ -50,11 +52,20 @@ const ProductDetail = () => {
         </div>
         <div className="w-1/2">
           <h3 className="text-3xl text-primary">{name}</h3>
-          <p className="text-xl text-slate-800 mt-5">{price} TK</p>
+          <p className="text-xl text-slate-800 mt-5">
+            Cafe: {cafeteria}
+          </p>
+          <p className="text-xl text-slate-800 mt-5">
+            Price: {price} TK
+          </p>
+          <p className="text-xl text-slate-800 mt-5">
+            Stock: {stock !== 0 ? stock : "Out of stock"}
+          </p>
           <p className="text-[#777] mt-5">{description}</p>
 
           <div className="mt-10">
             <button
+              disabled={stock === 0}
               onClick={handleAddToCart}
               className="btn btn-primary w-full text-base-100"
             >
@@ -70,7 +81,8 @@ const ProductDetail = () => {
     <Layout>
       <div className="pb-10">
         <h3>
-          Menu / item / <span className="text-primary">{data?.data?.name}</span>{" "}
+          Menu / item /{" "}
+          <span className="text-primary">{data?.data?.name}</span>{" "}
         </h3>
       </div>
       <Section>{content}</Section>

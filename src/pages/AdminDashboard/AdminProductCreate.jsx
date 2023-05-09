@@ -112,20 +112,51 @@ const AdminProductCreate = () => {
                 <label className="label">
                   <span className="label-text">Category</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Product category"
-                  className="input input-bordered"
+                <select
+                  className="select select-bordered w-full"
                   {...register("category", {
-                    required: {
+                    requied: {
                       value: true,
-                      message: "Category is required",
+                      message: "Caregory is required!",
                     },
                   })}
-                />
+                >
+                  <option disabled selected>
+                    Select Category
+                  </option>
+                  <option value="breakfirst">Breakfirst</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="drink">Drink</option>
+                </select>
                 <div className="ml-2 mt-3 text-red-500">
-                  {errors?.category?.type === "required" &&
-                    errors?.category?.message}
+                  {errors?.cafeteria?.type === "required" &&
+                    errors?.cafeteria?.message}
+                </div>
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Cafeteria</span>
+                </label>
+                <select
+                  className="select select-bordered w-full"
+                  {...register("cafeteria", {
+                    requied: {
+                      value: true,
+                      message: "Cafe is required!",
+                    },
+                  })}
+                >
+                  <option disabled selected>
+                    Select cafeteria
+                  </option>
+                  <option value="cafe-fastfood">Cafe Fastfood</option>
+                  <option value="cafe-chinese">Cafe Chinese</option>
+                </select>
+                <div className="ml-2 mt-3 text-red-500">
+                  {errors?.cafeteria?.type === "required" &&
+                    errors?.cafeteria?.message}
                 </div>
               </div>
 

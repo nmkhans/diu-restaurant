@@ -20,10 +20,25 @@ export const authApi = api.injectEndpoints({
       query: () => "/auth/users/all",
       providesTags: ["users"],
     }),
-    promoteUser: builder.mutation({
+    promoteUserToAdmin: builder.mutation({
       query: (id) => ({
-        url: `/auth/user/promote/${id}`,
+        url: `/auth/user/promote-to-admin/${id}`,
         method: "PATCH",
+      }),
+      invalidatesTags: ["users"],
+    }),
+    promoteUserToTeacher: builder.mutation({
+      query: (id) => ({
+        url: `/auth/user/promote-to-teacher/${id}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["users"],
+    }),
+    promoteUserToManager: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/auth/user/promote-to-manager/${id}`,
+        method: "PATCH",
+        body: data,
       }),
       invalidatesTags: ["users"],
     }),
@@ -34,5 +49,7 @@ export const {
   useRegisterMutation,
   useLoginMutation,
   useGetAllUsersQuery,
-  usePromoteUserMutation,
+  usePromoteUserToAdminMutation,
+  usePromoteUserToTeacherMutation,
+  usePromoteUserToManagerMutation,
 } = authApi;

@@ -8,6 +8,7 @@ export const orderApi = api.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["orders", "products"],
     }),
     getUsersAllOrder: builder.query({
       query: (email) => `/orders/${email}`,

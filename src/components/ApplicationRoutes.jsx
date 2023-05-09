@@ -4,7 +4,6 @@ import RequireAdmin from "./../util/RequireAdmin";
 import Home from "@/pages/Home.jsx";
 import ProductDetail from "@/pages/ProductDetail.jsx";
 import Cart from "./../pages/Cart";
-import Menu from "../pages/Menu";
 import CategoryPage from "../pages/CategoryPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -20,12 +19,13 @@ import AdminAllOrders from "../pages/AdminDashboard/AdminAllOrders";
 import AdminProductCreate from "../pages/AdminDashboard/AdminProductCreate";
 import AdminProductUpdate from "../pages/AdminDashboard/AdminProductUpdate";
 import AdminUserManage from "../pages/AdminDashboard/AdminUserManage";
+import CafeteriaPage from "../pages/CafeteriaPage";
 
 const ApplicationRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/menu" element={<Menu />} />
+      <Route path="/cafeteria/:name" element={<CafeteriaPage />} />
       <Route path="/item/:id" element={<ProductDetail />} />
       <Route path="/categories/:id" element={<CategoryPage />} />
       <Route path="/cart" element={<Cart />} />

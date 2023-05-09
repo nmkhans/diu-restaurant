@@ -3,18 +3,22 @@ import Title from "../../Layout/Title";
 import Section from "./../../Layout/Section";
 import {
   useGetAllUsersQuery,
-  usePromoteUserMutation,
+  usePromoteUserToAdminMutation,
+  usePromoteUserToTeacherMutation,
 } from "../../redux/api/authApi";
 import Loader from "../../components/Loader";
 import toast from "react-hot-toast";
+import UpdateUserRoleModal from "../../components/UpdateUserRoleModal";
+import { useState } from "react";
 
-const UserManageTableRow = ({ user, index }) => {
+const UserManageTableRow = ({ user, index, setUpdateId }) => {
   const { _id, name, email, phone, role } = user;
 
-  const [promoteUser] = usePromoteUserMutation();
+  const [promoteUserToAdmin] = usePromoteUserToAdminMutation();
+  const [promoteUserToTeacher] = usePromoteUserToTeacherMutation();
 
-  const handlePromote = async () => {
-    const res = await promoteUser(_id);
+  const handlePromoteToAdmin = async () => {
+    const res = await promoteUserToAdmin(_id);
 
     if (res?.data?.success) {
       toast.success(res?.data?.message, {
@@ -22,6 +26,20 @@ const UserManageTableRow = ({ user, index }) => {
       });
     } else {
       toast.error(res?.error?.data.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
+  const handlePromoteToTeacher = async () => {
+    const res = await promoteUserToTeacher(_id);
+
+    if (res?.data?.success) {
+      toast.success(res?.data?.message, {
+        position: "bottom-center",
+      });
+    } else {
+      toast.error(res?.data?.error.message, {
         position: "bottom-center",
       });
     }
@@ -35,12 +53,32 @@ const UserManageTableRow = ({ user, index }) => {
       <td>{phone}</td>
       <td>{role}</td>
       <td>
-        {role !== "admin" && (
+        {user?.role !== "admin" && (
           <span
-            onClick={handlePromote}
-            className="badge badge-lg badge-primary text-white cursor-pointer"
+            onClick={handlePromoteToAdmin}
+            className="badge badge-lg badge-primary text-white cursor-pointer mx-2"
           >
             Make admin
+          </span>
+        )}
+
+        {user?.role !== "admin" && user.role !== "teacher" && (
+          <span
+            onClick={handlePromoteToTeacher}
+            className="badge badge-lg badge-primary text-white cursor-pointer mx-2"
+          >
+            Make Teacher
+          </span>
+        )}
+
+        {user?.role !== "admin" && user.role !== "manager" && (
+          <span
+            onClick={() => setUpdateId(user._id)}
+            className="badge badge-lg badge-primary text-white cursor-pointer mx-2"
+          >
+            <label htmlFor="update-user-role-modal">
+              Make Manager
+            </label>
           </span>
         )}
       </td>
@@ -49,6 +87,7 @@ const UserManageTableRow = ({ user, index }) => {
 };
 
 const AdminUserManage = () => {
+  const [updateId, setUpdateId] = useState("");
   const { data, isLoading, isError, error } = useGetAllUsersQuery();
 
   //? render desicion
@@ -81,9 +120,11 @@ const AdminUserManage = () => {
                 key={user._id}
                 user={user}
                 index={index}
+                setUpdateId={setUpdateId}
               />
             ))}
           </tbody>
+          <UpdateUserRoleModal updateId={updateId} />
         </table>
       </div>
     );

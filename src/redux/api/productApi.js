@@ -8,6 +8,10 @@ export const productApi = api.injectEndpoints({
     }),
     getSingleProduct: builder.query({
       query: (id) => `/products/${id}`,
+      keepUnusedDataFor: 0,
+    }),
+    getProductByCafe: builder.query({
+      query: (name) => `/products/cafe/${name}`,
     }),
     getProductByCategory: builder.query({
       query: (category) => `/products/category/${category}`,
@@ -41,6 +45,7 @@ export const productApi = api.injectEndpoints({
 export const {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
+  useGetProductByCafeQuery,
   useGetProductByCategoryQuery,
   useCreateProductMutation,
   useUpdateProductMutation,

@@ -10,7 +10,24 @@ function NavigationLinks() {
   return (
     <>
       <li>
-        <Link to="/menu">Menu</Link>
+        <a className="block w-full">
+          <div className="dropdown dropdown-hover">
+            <label tabIndex={0}>Cafeteria</label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[300px]"
+            >
+              <li>
+                <Link to="/cafeteria/cafe-fastfood">
+                  Cafe Fastfood
+                </Link>
+              </li>
+              <li>
+                <Link to="/cafeteria/cafe-chinese">Cafe Chinese</Link>
+              </li>
+            </ul>
+          </div>
+        </a>
       </li>
       <li>
         <a className="block w-full">
