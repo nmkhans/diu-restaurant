@@ -6,12 +6,14 @@ import { toast } from "react-hot-toast";
 import Layout from "./../Layout/Layout";
 import Section from "../Layout/Section";
 import Images from "../util/Images";
+import { useAuthUser } from "react-auth-kit";
 
 const PaymentSuccess = () => {
   const [orderId, setOrderId] = useState();
   const [skip, setSkip] = useState(true);
   const { transactionId } = useParams();
   const navigate = useNavigate();
+  const user = useAuthUser()();
 
   const { data, isLoading, isError, error } = useVerifyPaymentQuery(
     {
@@ -69,7 +71,9 @@ const PaymentSuccess = () => {
         </div>
         <div className="text-center mt-5">
           <button
-            onClick={() => navigate("/user/dashboard/orders")}
+            onClick={() =>
+              navigate(`/${user?.role}/dashboard/orders`)
+            }
             className="btn btn-primary text-white"
           >
             Go to dashboard

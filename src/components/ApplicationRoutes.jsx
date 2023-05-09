@@ -20,6 +20,11 @@ import AdminProductCreate from "../pages/AdminDashboard/AdminProductCreate";
 import AdminProductUpdate from "../pages/AdminDashboard/AdminProductUpdate";
 import AdminUserManage from "../pages/AdminDashboard/AdminUserManage";
 import CafeteriaPage from "../pages/CafeteriaPage";
+import TeacherDashboardPage from "./../pages/TeacherDashboard/TeacherDashboardPage";
+import TeacherDashboard from "../pages/TeacherDashboard/TeacherDashboard";
+import RequireTeacher from "./../util/RequireTeacher";
+import TeacherAllOrder from "../pages/TeacherDashboard/TeacherAllOrder";
+import TeacherRequest from "../pages/TeacherDashboard/TeacherRequest";
 
 const ApplicationRoutes = () => {
   return (
@@ -49,6 +54,7 @@ const ApplicationRoutes = () => {
         }
       />
 
+      {/* user dashboard management */}
       <Route
         path="/user/dashboard"
         element={
@@ -61,6 +67,7 @@ const ApplicationRoutes = () => {
         <Route path="orders" element={<UserOrders />} />
       </Route>
 
+      {/*Admin dashboard management  */}
       <Route
         path="/admin/dashboard"
         element={
@@ -69,9 +76,9 @@ const ApplicationRoutes = () => {
           </RequireAdmin>
         }
       >
-        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route index element={<AdminDashboard />} />
         <Route path="all-products" element={<AdminAllProducts />} />
-        <Route index element={<AdminAllOrders />} />
+        <Route path="all-orders" element={<AdminAllOrders />} />
         <Route
           path="create-product"
           element={<AdminProductCreate />}
@@ -81,6 +88,20 @@ const ApplicationRoutes = () => {
           element={<AdminProductUpdate />}
         />
         <Route path="user-manage" element={<AdminUserManage />} />
+      </Route>
+
+      {/* Teacher dashboard management */}
+      <Route
+        path="/teacher/dashboard"
+        element={
+          <RequireTeacher>
+            <TeacherDashboardPage />
+          </RequireTeacher>
+        }
+      >
+        <Route index element={<TeacherDashboard />} />
+        <Route path="orders" element={<TeacherAllOrder />} />
+        <Route path="request-food" element={<TeacherRequest />} />
       </Route>
     </Routes>
   );

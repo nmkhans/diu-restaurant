@@ -24,9 +24,16 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const auth = useAuthUser()();
+  const user = useAuthUser()();
 
   const delivery = parseFloat((total / 100) * 5);
+
+  const discount = parseFloat(((total + delivery) / 100) * 10);
+
+  const grandTotal =
+    user.role === "teacher"
+      ? total + delivery - discount
+      : total + delivery;
 
   const getProducts = (cart) => {
     let productList = [];
@@ -44,7 +51,8 @@ const Checkout = () => {
     const orderData = {
       ...data,
       products,
-      amount: total,
+      role: user?.role,
+      amount: grandTotal,
     };
 
     const res = await placeOrder(orderData);
@@ -94,7 +102,7 @@ const Checkout = () => {
                       type="text"
                       placeholder="Enter your name"
                       className="input input-bordered w-full"
-                      defaultValue={auth.name}
+                      defaultValue={user.name}
                       {...register("name", {
                         required: {
                           value: true,
@@ -117,7 +125,7 @@ const Checkout = () => {
                       type="email"
                       placeholder="Enter your email"
                       className="input input-bordered w-full"
-                      defaultValue={auth.email}
+                      defaultValue={user.email}
                       {...register("email", {
                         required: {
                           value: true,
@@ -140,7 +148,7 @@ const Checkout = () => {
                       type="text"
                       placeholder="Enter your phone"
                       className="input input-bordered w-full"
-                      defaultValue={auth.phone}
+                      defaultValue={user.phone}
                       {...register("phone", {
                         required: {
                           value: true,
@@ -179,13 +187,19 @@ const Checkout = () => {
                   <h3>Delivery: </h3>
                   <h3>{delivery} Taka</h3>
                 </div>
+                {user?.role === "teacher" && (
+                  <div className="flex justify-between mt-5">
+                    <h3>Discount: </h3>
+                    <h3>10%</h3>
+                  </div>
+                )}
               </div>
             </div>
             <div className="divider"></div>
             <div>
               <div className="flex justify-between mt-5 font-semibold text-primary text-center text-lg">
                 <h3>Total: </h3>
-                <h3>{total + delivery} Taka</h3>
+                <h3>{grandTotal} Taka</h3>
               </div>
             </div>
             <div className="mt-10 text-center">

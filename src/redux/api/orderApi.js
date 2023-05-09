@@ -12,6 +12,7 @@ export const orderApi = api.injectEndpoints({
     }),
     getUsersAllOrder: builder.query({
       query: (email) => `/orders/${email}`,
+      providesTags: ["orders"],
     }),
     getAllOrders: builder.query({
       query: () => "/orders",
