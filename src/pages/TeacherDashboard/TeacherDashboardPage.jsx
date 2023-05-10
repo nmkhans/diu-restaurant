@@ -22,7 +22,7 @@ const TeacherDashboardPage = () => {
           ></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content">
             <li>
-              <Link to="/teacher/dashboard">Dashboard</Link>
+              <Link to="/teacher/dashboard">Profile</Link>
             </li>
             <li>
               <Link to="/teacher/dashboard/orders">All Orders</Link>

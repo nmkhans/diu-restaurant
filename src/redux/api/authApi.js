@@ -42,6 +42,16 @@ export const authApi = api.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+    getProfileInfo: builder.query({
+      query: (email) => `/auth/get-profile/${email}`,
+    }),
+    updateProfile: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/auth/update-profile/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -52,4 +62,6 @@ export const {
   usePromoteUserToAdminMutation,
   usePromoteUserToTeacherMutation,
   usePromoteUserToManagerMutation,
+  useGetProfileInfoQuery,
+  useUpdateProfileMutation,
 } = authApi;

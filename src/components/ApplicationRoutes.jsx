@@ -21,12 +21,12 @@ import AdminProductUpdate from "../pages/AdminDashboard/AdminProductUpdate";
 import AdminUserManage from "../pages/AdminDashboard/AdminUserManage";
 import CafeteriaPage from "../pages/CafeteriaPage";
 import TeacherDashboardPage from "./../pages/TeacherDashboard/TeacherDashboardPage";
-import TeacherDashboard from "../pages/TeacherDashboard/TeacherDashboard";
 import RequireTeacher from "./../util/RequireTeacher";
 import TeacherAllOrder from "../pages/TeacherDashboard/TeacherAllOrder";
 import TeacherRequest from "../pages/TeacherDashboard/TeacherRequest";
 import TeacherRequestedFood from "../pages/TeacherDashboard/TeacherRequestedFood";
 import AdminRequestedFood from "./../pages/AdminDashboard/AdminRequestedFood";
+import TeacherProfile from "../pages/TeacherDashboard/TeacherProfile";
 
 const ApplicationRoutes = () => {
   return (
@@ -105,7 +105,7 @@ const ApplicationRoutes = () => {
           </RequireTeacher>
         }
       >
-        <Route index element={<TeacherDashboard />} />
+        <Route index element={<TeacherProfile />} />
         <Route path="orders" element={<TeacherAllOrder />} />
         <Route path="request-food" element={<TeacherRequest />} />
         <Route
