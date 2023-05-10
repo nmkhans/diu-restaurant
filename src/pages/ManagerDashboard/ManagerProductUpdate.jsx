@@ -5,7 +5,7 @@ import { useGetSingleProductQuery } from "../../redux/api/productApi";
 import Loader from "./../../components/Loader";
 import UpdateProductForm from "./UpdateProductForm";
 
-const AdminProductUpdate = () => {
+const ManagerProductUpdate = () => {
   const { id } = useParams();
 
   const { data, isLoading, isError, error } =
@@ -32,4 +32,4 @@ const AdminProductUpdate = () => {
   );
 };
 
-export default AdminProductUpdate;
+export default ManagerProductUpdate;

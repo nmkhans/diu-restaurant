@@ -47,6 +47,14 @@ const ProfileMenu = () => {
               Dashboard
             </li>
           )}
+          {user?.role === "manager" && (
+            <li
+              onClick={() => navigate("/manager/dashboard")}
+              className="mx-auto my-2"
+            >
+              Dashboard
+            </li>
+          )}
           <li onClick={() => signOut()} className="mx-auto my-2">
             Logout
           </li>

@@ -20,7 +20,7 @@ const UpdateProductForm = ({ product }) => {
       toast.success(res.data.message, {
         position: "bottom-center",
       });
-      navigate("/admin/dashboard/all-products");
+      navigate("/manager/dashboard");
     } else {
       toast.success(res.error.data.message, {
         position: "bottom-center",

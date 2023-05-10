@@ -12,6 +12,7 @@ export const productApi = api.injectEndpoints({
     }),
     getProductByCafe: builder.query({
       query: (name) => `/products/cafe/${name}`,
+      providesTags: ["products"],
     }),
     getProductByCategory: builder.query({
       query: (category) => `/products/category/${category}`,

@@ -34,7 +34,7 @@ const TeacherRequestedFood = () => {
     content = <div>NO data available</div>;
 
   if (!isLoading && !isError && data?.data?.length > 0) {
-    console.log(data);
+
     content = (
       <div className="overflow-x-auto">
         <table className="table w-full">

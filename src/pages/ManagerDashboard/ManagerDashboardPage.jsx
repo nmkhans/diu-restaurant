@@ -1,12 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
 import Layout from "./../../Layout/Layout";
 
-const AdminDashboardPage = () => {
+const ManagerDashboardPage = () => {
   return (
     <section>
       <div className="drawer drawer-mobile">
         <input
-          id="admin-dashboard"
+          id="user-dashboard"
           type="checkbox"
           className="drawer-toggle"
         />
@@ -17,20 +17,22 @@ const AdminDashboardPage = () => {
         </div>
         <div className="drawer-side">
           <label
-            htmlFor="admin-dashboard"
+            htmlFor="user-dashboard"
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content">
             <li>
-              <Link to="/admin/dashboard/user-manage">
-                Manage users
+              <Link to="/manager/dashboard">
+                Product List
               </Link>
             </li>
             <li>
-              <Link to="/admin/dashboard">All Orders</Link>
+              <Link to="/manager/dashboard/add-product">
+                Add Product
+              </Link>
             </li>
             <li>
-              <Link to="/admin/dashboard/requested-food">
+              <Link to="/manager/dashboard/requested-food">
                 Requested Food
               </Link>
             </li>
@@ -41,4 +43,4 @@ const AdminDashboardPage = () => {
   );
 };
 
-export default AdminDashboardPage;
+export default ManagerDashboardPage;

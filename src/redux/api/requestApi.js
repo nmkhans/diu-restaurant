@@ -31,6 +31,9 @@ export const requestApi = api.injectEndpoints({
       }),
       invalidatesTags: ["request"],
     }),
+    getRequestedFoodByCafe: builder.query({
+      query: (name) => `/food-request/cafe/${name}`,
+    }),
   }),
 });
 
@@ -40,4 +43,5 @@ export const {
   useGetAllRequestedFoodQuery,
   useApproveRequestMutation,
   useDeclineRequestMutation,
+  useGetRequestedFoodByCafeQuery,
 } = requestApi;

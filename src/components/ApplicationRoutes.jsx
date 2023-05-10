@@ -9,15 +9,10 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Checkout from "../pages/Checkout";
 import UserDashboardPage from "../pages/UserDashboard/UserDashboardPage";
-import UserDashboard from "../pages/UserDashboard/UserDashboard";
 import UserOrders from "../pages/UserDashboard/UserOrders";
 import PaymentSuccess from "../pages/PaymentSuccess";
-import AdminDashboard from "../pages/AdminDashboard/AdminDashboard";
 import AdminDashboardPage from "../pages/AdminDashboard/AdminDashboardPage";
-import AdminAllProducts from "../pages/AdminDashboard/AdminAllProducts";
 import AdminAllOrders from "../pages/AdminDashboard/AdminAllOrders";
-import AdminProductCreate from "../pages/AdminDashboard/AdminProductCreate";
-import AdminProductUpdate from "../pages/AdminDashboard/AdminProductUpdate";
 import AdminUserManage from "../pages/AdminDashboard/AdminUserManage";
 import CafeteriaPage from "../pages/CafeteriaPage";
 import TeacherDashboardPage from "./../pages/TeacherDashboard/TeacherDashboardPage";
@@ -27,6 +22,13 @@ import TeacherRequest from "../pages/TeacherDashboard/TeacherRequest";
 import TeacherRequestedFood from "../pages/TeacherDashboard/TeacherRequestedFood";
 import AdminRequestedFood from "./../pages/AdminDashboard/AdminRequestedFood";
 import TeacherProfile from "../pages/TeacherDashboard/TeacherProfile";
+import UserProfile from "../pages/UserDashboard/UserProfile";
+import ManagerDashboardPage from "../pages/ManagerDashboard/ManagerDashboardPage";
+import ManagerAddProduct from "../pages/ManagerDashboard/ManagerAddProduct";
+import ManagerProductList from "../pages/ManagerDashboard/ManagerProductList";
+import ManagerRequestedFood from "./../pages/ManagerDashboard/ManagerRequestedFood";
+import ManagerProductUpdate from "../pages/ManagerDashboard/ManagerProductUpdate";
+import RequireManager from "./../util/RequireManager";
 
 const ApplicationRoutes = () => {
   return (
@@ -65,7 +67,7 @@ const ApplicationRoutes = () => {
           </RequireAuth>
         }
       >
-        <Route index element={<UserDashboard />} />
+        <Route index element={<UserProfile />} />
         <Route path="orders" element={<UserOrders />} />
       </Route>
 
@@ -78,17 +80,7 @@ const ApplicationRoutes = () => {
           </RequireAdmin>
         }
       >
-        <Route index element={<AdminDashboard />} />
-        <Route path="all-products" element={<AdminAllProducts />} />
-        <Route path="all-orders" element={<AdminAllOrders />} />
-        <Route
-          path="create-product"
-          element={<AdminProductCreate />}
-        />
-        <Route
-          path="update-product/:id"
-          element={<AdminProductUpdate />}
-        />
+        <Route index element={<AdminAllOrders />} />
         <Route path="user-manage" element={<AdminUserManage />} />
         <Route
           path="requested-food"
@@ -111,6 +103,28 @@ const ApplicationRoutes = () => {
         <Route
           path="request-food-list"
           element={<TeacherRequestedFood />}
+        />
+      </Route>
+
+      {/* Manager dashboard management */}
+      <Route
+        path="/manager/dashboard"
+        element={
+          <RequireManager>
+            <ManagerDashboardPage />
+          </RequireManager>
+        }
+      >
+        <Route index element={<ManagerProductList />} />
+        <Route path="add-product" element={<ManagerAddProduct />} />
+        <Route path="add-product" element={<ManagerAddProduct />} />
+        <Route
+          path="update-product/:id"
+          element={<ManagerProductUpdate />}
+        />
+        <Route
+          path="requested-food"
+          element={<ManagerRequestedFood />}
         />
       </Route>
     </Routes>

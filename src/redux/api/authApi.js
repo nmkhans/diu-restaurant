@@ -51,6 +51,7 @@ export const authApi = api.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: ["users"],
     }),
   }),
 });

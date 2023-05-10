@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
-import Title from "./../../Layout/Title";
-import Section from "./../../Layout/Section";
 import {
-  useGetAllProductsQuery,
+  useGetProductByCafeQuery,
   useDeleteProductMutation,
 } from "../../redux/api/productApi";
+import Title from "./../../Layout/Title";
+import Section from "./../../Layout/Section";
 import Loader from "../../components/Loader";
 import { FiTrash, FiEdit } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useAuthUser } from "react-auth-kit";
 
 const ProductTableRow = ({ data, index }) => {
   const navigate = useNavigate();
@@ -53,7 +54,9 @@ const ProductTableRow = ({ data, index }) => {
         <td className="flex justify-start">
           <span
             onClick={() =>
-              navigate(`/admin/dashboard/update-product/${data._id}`)
+              navigate(
+                `/manager/dashboard/update-product/${data._id}`
+              )
             }
           >
             <FiEdit className="mx-3 text-[20px] text-warning cursor-pointer" />
@@ -67,9 +70,10 @@ const ProductTableRow = ({ data, index }) => {
   );
 };
 
-const AdminAllProducts = () => {
+const ManagerProductList = () => {
+  const user = useAuthUser()();
   const { data, isLoading, isError, error } =
-    useGetAllProductsQuery();
+    useGetProductByCafeQuery(user?.cafeteria);
 
   //? render desicion
   let content = null;
@@ -117,4 +121,4 @@ const AdminAllProducts = () => {
   );
 };
 
-export default AdminAllProducts;
+export default ManagerProductList;
