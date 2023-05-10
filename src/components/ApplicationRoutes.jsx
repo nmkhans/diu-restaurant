@@ -25,6 +25,7 @@ import TeacherDashboard from "../pages/TeacherDashboard/TeacherDashboard";
 import RequireTeacher from "./../util/RequireTeacher";
 import TeacherAllOrder from "../pages/TeacherDashboard/TeacherAllOrder";
 import TeacherRequest from "../pages/TeacherDashboard/TeacherRequest";
+import TeacherRequestedFood from "../pages/TeacherDashboard/TeacherRequestedFood";
 
 const ApplicationRoutes = () => {
   return (
@@ -102,6 +103,10 @@ const ApplicationRoutes = () => {
         <Route index element={<TeacherDashboard />} />
         <Route path="orders" element={<TeacherAllOrder />} />
         <Route path="request-food" element={<TeacherRequest />} />
+        <Route
+          path="request-food-list"
+          element={<TeacherRequestedFood />}
+        />
       </Route>
     </Routes>
   );
