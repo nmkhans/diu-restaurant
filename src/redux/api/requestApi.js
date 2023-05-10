@@ -11,6 +11,25 @@ export const requestApi = api.injectEndpoints({
     }),
     getRequestListForUser: builder.query({
       query: (email) => `/food-request/all/${email}`,
+      providesTags: ["request"],
+    }),
+    getAllRequestedFood: builder.query({
+      query: () => "/food-request/all",
+      providesTags: ["request"],
+    }),
+    approveRequest: builder.mutation({
+      query: ({ id, cafeteria }) => ({
+        url: `/food-request?id=${id}&cafeteria=${cafeteria}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["request"],
+    }),
+    declineRequest: builder.mutation({
+      query: (id) => ({
+        url: `/food-request/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["request"],
     }),
   }),
 });
@@ -18,4 +37,7 @@ export const requestApi = api.injectEndpoints({
 export const {
   usePlaceRequestMutation,
   useGetRequestListForUserQuery,
+  useGetAllRequestedFoodQuery,
+  useApproveRequestMutation,
+  useDeclineRequestMutation,
 } = requestApi;

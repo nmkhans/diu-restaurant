@@ -39,6 +39,11 @@ const AdminDashboardPage = () => {
                 Create Product
               </Link>
             </li>
+            <li>
+              <Link to="/admin/dashboard/requested-food">
+                Requested Food
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

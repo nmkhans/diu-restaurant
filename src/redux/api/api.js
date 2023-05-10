@@ -8,7 +8,7 @@ const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:9000/api/v1",
   }),
-  tagTypes: ["products", "orders", "users"],
+  tagTypes: ["products", "orders", "users", "request"],
   endpoints: () => ({}),
 });
 

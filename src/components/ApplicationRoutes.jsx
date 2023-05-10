@@ -26,6 +26,7 @@ import RequireTeacher from "./../util/RequireTeacher";
 import TeacherAllOrder from "../pages/TeacherDashboard/TeacherAllOrder";
 import TeacherRequest from "../pages/TeacherDashboard/TeacherRequest";
 import TeacherRequestedFood from "../pages/TeacherDashboard/TeacherRequestedFood";
+import AdminRequestedFood from "./../pages/AdminDashboard/AdminRequestedFood";
 
 const ApplicationRoutes = () => {
   return (
@@ -89,6 +90,10 @@ const ApplicationRoutes = () => {
           element={<AdminProductUpdate />}
         />
         <Route path="user-manage" element={<AdminUserManage />} />
+        <Route
+          path="requested-food"
+          element={<AdminRequestedFood />}
+        />
       </Route>
 
       {/* Teacher dashboard management */}
