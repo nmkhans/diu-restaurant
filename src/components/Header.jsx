@@ -18,12 +18,10 @@ function NavigationLinks() {
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[300px]"
             >
               <li>
-                <Link to="/cafeteria/cafe-fastfood">
-                  Cafe Fastfood
-                </Link>
+                <Link to="/cafeteria/green-garden">Green Garden</Link>
               </li>
               <li>
-                <Link to="/cafeteria/cafe-chinese">Cafe Chinese</Link>
+                <Link to="/cafeteria/food-court">Food Court</Link>
               </li>
             </ul>
           </div>
@@ -47,7 +45,7 @@ function NavigationLinks() {
                 <Link to="/categories/dinner">Dinner</Link>
               </li>
               <li>
-                <Link to="/categories/drinks">Drinks</Link>
+                <Link to="/categories/drink">Drinks</Link>
               </li>
             </ul>
           </div>

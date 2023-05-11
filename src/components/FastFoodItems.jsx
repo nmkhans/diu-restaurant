@@ -2,10 +2,11 @@ import Section from "./../Layout/Section";
 import { useGetProductByCafeQuery } from "../redux/api/productApi";
 import Loader from "./Loader";
 import Product from "./Product";
+import Title from "./../Layout/Title";
 
 const FastFoodItems = () => {
   const { data, isLoading, isError, error } =
-    useGetProductByCafeQuery("cafe-fastfood");
+    useGetProductByCafeQuery("green-garden");
 
   //? render decision
   let content = null;
@@ -27,6 +28,7 @@ const FastFoodItems = () => {
     );
   return (
     <Section>
+      <Title>Available Green gurden items</Title>
       <Section>{content}</Section>
     </Section>
   );

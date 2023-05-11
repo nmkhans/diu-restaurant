@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Layout from "./../Layout/Layout";
 import Title from "./../Layout/Title";
 import Section from "./../Layout/Section";
@@ -17,24 +18,32 @@ const AboutUs = () => {
             />
             <div>
               <h1 className="text-5xl font-bold">
-                We are Daffodil canteen Management
+                We are Daffodil canteen Team
               </h1>
               <p className="py-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Impedit rerum, aliquid aspernatur tenetur ipsum
-                harum, non doloribus fugiat odit commodi, culpa labore
-                at a. Saepe quod adipisci et deleniti. Quidem
-                quibusdam quisquam sed mollitia, dolore inventore
-                accusantium, minus ratione eos unde reiciendis rem!
-                Inventore, est itaque sequi ullam eos nam illo
-                ducimus, blanditiis, obcaecati omnis repudiandae illum
-                voluptas libero perspiciatis praesentium nulla impedit
-                totam dignissimos accusamus eum accusantium aut
-                reprehenderit cum rerum! Repudiandae nisi dolore,
-                incidunt recusandae nemo, perspiciatis suscipit odio
-                adipisci aliquam minima error cum. Consequatur alias
-                eum asperiores, veritatis quasi error dignissimos quis
-                totam! Accusamus blanditiis laboriosam sequi!
+                Welcome to our restaurant! We're a team of passionate
+                foodies who believe that dining out should be an
+                unforgettable experience. From the moment you step
+                through our doors, you'll be transported to a world of
+                bold flavors, exciting aromas, and warm hospitality.
+                At our restaurant, we're committed to using only the
+                freshest, highest-quality ingredients in every dish we
+                create. Whether you're indulging in one of our
+                signature entrees or savoring a mouth-watering
+                appetizer, you can trust that every bite will be
+                bursting with flavor and nutrition. But we're more
+                than just great food - we're also dedicated to
+                providing exceptional service and creating a welcoming
+                atmosphere for all of our guests. Whether you're
+                celebrating a special occasion with loved ones or
+                enjoying a casual meal with friends, we want you to
+                feel right at home and have an unforgettable
+                experience. So come visit us today and experience the
+                best of what our restaurant has to offer. We're
+                confident that once you taste our delicious food and
+                experience our exceptional service, you'll become a
+                loyal customer for life. Thank you for choosing us -
+                we can't wait to serve you!
               </p>
               <Link to="/">
                 <button className="btn btn-primary">

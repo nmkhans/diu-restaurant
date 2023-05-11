@@ -54,8 +54,8 @@ const ApproveModal = ({ id }) => {
               <option disabled selected>
                 Select cafeteria
               </option>
-              <option value="cafe-fastfood">Cafe Fastfood</option>
-              <option value="cafe-chinese">Cafe chinese</option>
+              <option value="green-garden">Green Garden</option>
+              <option value="food-court">Food Court</option>
             </select>
           </form>
         </div>

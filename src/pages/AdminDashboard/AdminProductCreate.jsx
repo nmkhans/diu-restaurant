@@ -151,8 +151,8 @@ const AdminProductCreate = () => {
                   <option disabled selected>
                     Select cafeteria
                   </option>
-                  <option value="cafe-fastfood">Cafe Fastfood</option>
-                  <option value="cafe-chinese">Cafe Chinese</option>
+                  <option value="green-garden">Green Garden</option>
+                  <option value="food-court">Food Court</option>
                 </select>
                 <div className="ml-2 mt-3 text-red-500">
                   {errors?.cafeteria?.type === "required" &&

@@ -51,8 +51,8 @@ const UpdateUserRoleModal = ({ updateId }) => {
                 <option selected disabled>
                   Select Cafeteria
                 </option>
-                <option value="cafe-fastfood">Cafe Fastfood</option>
-                <option value="cafe-chinese">Cafe Chinese</option>
+                <option value="green-garden">Green Garden</option>
+                <option value="food-court">Food Court</option>
               </select>
             </form>
           </div>

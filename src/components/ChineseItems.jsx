@@ -2,10 +2,11 @@ import Section from "./../Layout/Section";
 import { useGetProductByCafeQuery } from "../redux/api/productApi";
 import Loader from "./Loader";
 import Product from "./Product";
+import Title from "./../Layout/Title";
 
 const ChineseItems = () => {
   const { data, isLoading, isError, error } =
-    useGetProductByCafeQuery("cafe-chinese");
+    useGetProductByCafeQuery("food-court");
 
   //? render decision
   let content = null;
@@ -27,6 +28,7 @@ const ChineseItems = () => {
     );
   return (
     <Section>
+      <Title>Available Food court items</Title>
       <Section>{content}</Section>
     </Section>
   );
