@@ -53,6 +53,12 @@ function NavigationLinks() {
           </div>
         </a>
       </li>
+      <li>
+        <Link to="/about-us">About us</Link>
+      </li>
+      <li>
+        <Link to="/contact-us">Contact us</Link>
+      </li>
     </>
   );
 }

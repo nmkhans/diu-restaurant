@@ -6,6 +6,7 @@ import slideThree from "@/assets/slide_3.jpg";
 import avater from "@/assets/avater.png";
 import checked from "@/assets/checked.png";
 import foodImg from "@/assets/food_image.png";
+import chineseFood from "@/assets/chinese.png";
 
 const Images = {
   homeImg,
@@ -16,6 +17,7 @@ const Images = {
   avater,
   checked,
   foodImg,
+  chineseFood,
 };
 
 export default Images;

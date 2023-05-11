@@ -29,6 +29,8 @@ import ManagerProductList from "../pages/ManagerDashboard/ManagerProductList";
 import ManagerRequestedFood from "./../pages/ManagerDashboard/ManagerRequestedFood";
 import ManagerProductUpdate from "../pages/ManagerDashboard/ManagerProductUpdate";
 import RequireManager from "./../util/RequireManager";
+import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 const ApplicationRoutes = () => {
   return (
@@ -40,6 +42,8 @@ const ApplicationRoutes = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       <Route
         path="/checkout"
         element={

@@ -36,7 +36,7 @@ const HeroSlider = () => {
               If you want the best, we are here{" "}
               <span className="text-primary">...</span>
             </p>
-            <Link to="/menu">
+            <Link to="/cafeteria/cafe-fastfood">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
                 Menu
               </button>
@@ -63,7 +63,7 @@ const HeroSlider = () => {
               place for you
               <span className="text-primary">...</span>
             </p>
-            <Link to="/menu">
+            <Link to="/cafeteria/cafe-chinese">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
                 Menu
               </button>
@@ -89,7 +89,7 @@ const HeroSlider = () => {
               all kind and all varaities of food
               <span className="text-primary">...</span>
             </p>
-            <Link to="/menu">
+            <Link to="/categories/drinks">
               <button className="btn btn-primary w-[150px] mt-3 text-white">
                 Menu
               </button>
