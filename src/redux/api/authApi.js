@@ -53,6 +53,12 @@ export const authApi = api.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `/auth/delete-user/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -65,4 +71,5 @@ export const {
   usePromoteUserToManagerMutation,
   useGetProfileInfoQuery,
   useUpdateProfileMutation,
+  useDeleteUserMutation,
 } = authApi;

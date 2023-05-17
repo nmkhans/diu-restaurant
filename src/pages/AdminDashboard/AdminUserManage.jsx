@@ -5,6 +5,7 @@ import {
   useGetAllUsersQuery,
   usePromoteUserToAdminMutation,
   usePromoteUserToTeacherMutation,
+  useDeleteUserMutation,
 } from "../../redux/api/authApi";
 import Loader from "../../components/Loader";
 import toast from "react-hot-toast";
@@ -16,6 +17,7 @@ const UserManageTableRow = ({ user, index, setUpdateId }) => {
 
   const [promoteUserToAdmin] = usePromoteUserToAdminMutation();
   const [promoteUserToTeacher] = usePromoteUserToTeacherMutation();
+  const [deleteUser] = useDeleteUserMutation();
 
   const handlePromoteToAdmin = async () => {
     const res = await promoteUserToAdmin(_id);
@@ -33,6 +35,20 @@ const UserManageTableRow = ({ user, index, setUpdateId }) => {
 
   const handlePromoteToTeacher = async () => {
     const res = await promoteUserToTeacher(_id);
+
+    if (res?.data?.success) {
+      toast.success(res?.data?.message, {
+        position: "bottom-center",
+      });
+    } else {
+      toast.error(res?.data?.error.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
+  const handleDelete = async () => {
+    const res = await deleteUser(_id);
 
     if (res?.data?.success) {
       toast.success(res?.data?.message, {
@@ -78,6 +94,17 @@ const UserManageTableRow = ({ user, index, setUpdateId }) => {
           >
             <label htmlFor="update-user-role-modal">
               Make Manager
+            </label>
+          </span>
+        )}
+
+        {user?.role !== "admin" && (
+          <span
+            onClick={handleDelete}
+            className="badge badge-lg badge-error text-white cursor-pointer mx-2"
+          >
+            <label htmlFor="update-user-role-modal">
+              Delete user
             </label>
           </span>
         )}
