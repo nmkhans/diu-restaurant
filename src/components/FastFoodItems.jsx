@@ -28,7 +28,7 @@ const FastFoodItems = () => {
     );
   return (
     <Section>
-      <Title>Available Green gurden items</Title>
+      <Title>Available Green garden items</Title>
       <Section>{content}</Section>
     </Section>
   );

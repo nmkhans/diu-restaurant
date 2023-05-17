@@ -16,7 +16,7 @@ const AvailableFastfoodItems = () => {
               />
               <div>
                 <h1 className="text-5xl font-bold">
-                  All kind Items are available in Green gurden.
+                  All kind Items are available in Green garden.
                 </h1>
                 <p className="py-6">
                   When it comes to fast food, it's all about
