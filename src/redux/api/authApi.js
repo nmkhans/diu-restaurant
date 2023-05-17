@@ -58,6 +58,7 @@ export const authApi = api.injectEndpoints({
         url: `/auth/delete-user/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["users"],
     }),
   }),
 });
